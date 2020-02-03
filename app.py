@@ -1,10 +1,10 @@
 import requests, json
+from settings import API_KEY
 
 
-api_key = "ADD API KEY"
 base_url = "http://api.openweathermap.org/data/2.5/weather?"
 city_name = input("Enter City Name : ")
-complete_url = base_url + "appid=" + api_key + "&q=" + city_name + "&units=imperial"
+complete_url = base_url + "appid=" + API_KEY + "&q=" + city_name + "&units=imperial"
 response = requests.get(complete_url)
 
 x = response.json()
