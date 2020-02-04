@@ -13,7 +13,7 @@ if x["cod"] != "404":
     y = x["main"]
     current_temperature = y["temp"]
     current_pressure = y["pressure"]
-    current_humidiy = y["humidity"]
+    current_humidity = y["humidity"]
     z = x["weather"]
     weather_description = z[0]["description"]
     print(" Temperature (in Fahrenheit) = " +
@@ -21,7 +21,7 @@ if x["cod"] != "404":
           "\n Atmospheric Pressure (in Hpa Unit) = " +
           str(current_pressure) +
           "\n Humidity (in percentage) = " +
-          str(current_humidiy) +
+          str(current_humidity) +
           "\n Description = " +
           str(weather_description))
 
