@@ -18,7 +18,7 @@ if x["cod"] != "404":
     weather_description = z[0]["description"]
     print(" Temperature (in Fahrenheit) = " +
           str(current_temperature) +
-          "\n Atmospheric Pressure (in Hpa Unit) = " +
+          "\n Atmospheric Pressure (in hPa Unit) = " +
           str(current_pressure) +
           "\n Humidity (in percentage) = " +
           str(current_humidity) +
