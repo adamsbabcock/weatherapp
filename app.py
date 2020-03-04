@@ -4,27 +4,19 @@ from settings import API_KEY
 
 base_url = "http://api.openweathermap.org/data/2.5/weather?"
 city_name = input("Enter City Name : ")
-complete_url = base_url + "appid=" + API_KEY + "&q=" + city_name + "&units=imperial"
-response = requests.get(complete_url)
+complete_url = "{}appid={}&q={}&units=imperial".format(base_url, API_KEY, city_name)
+response = requests.get(complete_url).json()
+URL_NOT_FOUND = "404"
 
-x = response.json()
-
-if x["cod"] != "404":
-    y = x["main"]
-    current_temperature = y["temp"]
-    current_pressure = y["pressure"]
-    current_humidity = y["humidity"]
-    z = x["weather"]
-    weather_description = z[0]["description"]
-    print(" Temperature (in Fahrenheit) = " +
-          str(current_temperature) +
-          "\n Atmospheric Pressure (in hPa Unit) = " +
-          str(current_pressure) +
-          "\n Humidity (in percentage) = " +
-          str(current_humidity) +
-          "\n Description = " +
-          str(weather_description))
-
+if response["cod"] != URL_NOT_FOUND:
+    weather_stats = response["main"]
+    current_temperature = weather_stats["temp"]
+    current_pressure = weather_stats["pressure"]
+    current_humidity = weather_stats["humidity"]
+    weather_description = response["weather"][0]["description"]
+    print(
+        "Temperature (in Fahrenheit) = {} \nAtmospheric Pressure (in hPa Unit) = {} \nHumidity (in percentage) = {} "
+        "\nDescription = {} ".format(current_temperature, current_pressure, current_humidity, weather_description)
+    )
 else:
     print(" City Not Found ")
-
