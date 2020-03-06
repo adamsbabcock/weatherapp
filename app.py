@@ -1,4 +1,4 @@
-import requests, json
+import requests
 from settings import API_KEY
 
 
@@ -13,10 +13,10 @@ if response["cod"] != URL_NOT_FOUND:
     current_temperature = weather_stats["temp"]
     current_pressure = weather_stats["pressure"]
     current_humidity = weather_stats["humidity"]
-    weather_description = response["weather"][0]["description"]
+    weather_description = ' and '.join([x['description'] for x in response['weather']])
     print(
-        "Temperature (in Fahrenheit) = {} \nAtmospheric Pressure (in hPa Unit) = {} \nHumidity (in percentage) = {} "
-        "\nDescription = {} ".format(current_temperature, current_pressure, current_humidity, weather_description)
+        "Temperature = {}\u00b0F \nAtmospheric Pressure = {} hPa \nHumidity = {}% "
+        "\nDescription = {} ".format(current_temperature, current_pressure, current_humidity, weather_description.title())
     )
 else:
     print(" City Not Found ")
