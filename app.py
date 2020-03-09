@@ -13,7 +13,7 @@ if response["cod"] != URL_NOT_FOUND:
     current_temperature = weather_stats["temp"]
     current_pressure = weather_stats["pressure"]
     current_humidity = weather_stats["humidity"]
-    weather_description = ' and '.join([x['description'] for x in response['weather']])
+    weather_description = ' and '.join(x['description'] for x in response['weather'])
     print(
         "Temperature = {}\u00b0F \nAtmospheric Pressure = {} hPa \nHumidity = {}% "
         "\nDescription = {} ".format(current_temperature, current_pressure, current_humidity, weather_description.title())
