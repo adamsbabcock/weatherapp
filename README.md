@@ -18,4 +18,3 @@
 * Open Terminal
 * `pip install -r requirements.txt`
 * Run `FLASK_APP=index.py flask run`
-
